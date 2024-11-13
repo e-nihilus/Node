@@ -13,14 +13,12 @@ readConsole()
 
 //-------con async/await--------
 
-// async function persona() {
-//     try {
-//         const userData = await readConsole();
-//         const result = writeAndRead("./ejem.json", userData);
-//         return result
-//     } catch (error) {
-//         console.error('Error:', error);
-//     }
-// }
+async function persona() {
+    try {
+        await readConsole();
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
 
-// persona();
+persona();
