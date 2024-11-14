@@ -23,15 +23,18 @@ function getBooks(request, response) {
         } else {
             respuesta = { error: true, codigo: 200, mensaje: "El libro no existe" };
         }
-    } else {
-        if (books.length > 0) {
-            respuesta = { error: false, codigo: 200, mensaje: "Libros encontrados", data: books };
-        } else {
-            respuesta = { error: true, codigo: 200, mensaje: "No hay libros disponibles" };
-        }
+    } 
+    else if (books.length > 0) 
+    {
+        respuesta = { error: false, codigo: 200, mensaje: "Libros encontrados", data: books };
+    } 
+    else 
+    {
+        respuesta = { error: true, codigo: 200, mensaje: "No hay libros disponibles" };
     }
 
-    response.send(respuesta);}
+    response.send(respuesta);
+}
 
 
 function postBooks(request, response) {
@@ -47,18 +50,18 @@ function postBooks(request, response) {
 function putBooks(request, response) {
     const { id_book, title, type, author, price, photo } = request.body; 
     let respuesta;
-    const id = books.findIndex(b => b.id_book === Number(id_book));
+    const book = books.find(b => b.id_book === Number(id_book));
 
-    if (id !== -1) {
-        books[id].title = title;
-        books[id].type = type;
-        books[id].author = author;
-        books[id].price = price;
-        books[id].photo = photo;
+    if (book) {
+        book.title = title ? title : book.title;
+        book.type = type ? type : book.type;
+        book.author = author ? author : book.author;
+        book.price = price ? price : book.price;
+        book.photo = photo ? photo : book.photo;
 
-        respuesta = { error: false, codigo: 200, mensaje: "Libro actualizado"};
+        respuesta = { error: false, codigo: 200, mensaje: "Libro actualizado" };
     } else {
-        respuesta = { error: true, codigo: 200, mensaje: "El libro no existe"};
+        respuesta = { error: true, codigo: 404, mensaje: "El libro no existe" };
     }
 
     response.send(respuesta);
@@ -66,15 +69,16 @@ function putBooks(request, response) {
 
 function deleteBooks(request, response) {
     const { id_book } = request.body; 
+    const initialLength = books.length;
+    books = books.filter(b => b.id_book !== Number(id_book));
     let respuesta;
-    const id = books.findIndex(b => b.id_book === Number(id_book));
-
-    if (id !== -1) {
-        books.splice(id, 1); 
-        respuesta = { error: false, codigo: 200, mensaje: "Libro eliminado"};
+    
+    if (books.length < initialLength) {
+        respuesta = { error: false, codigo: 200, mensaje: "Libro eliminado" };
     } else {
-        respuesta = { error: true, codigo: 200, mensaje: "El libro no existe"};
+        respuesta = { error: true, codigo: 404, mensaje: "El libro no existe" };
     }
+
     response.send(respuesta);
 }
 
