@@ -1,11 +1,10 @@
 const { Book } = require("../models/book");
 let books = [
-    new Book("El Principito", "Tapa blanda", "Antoine de Saint-Exupéry", 10.99, "url1",1),
-    new Book("1984", "Tapa dura", "George Orwell", 8.99, "url2",2),
-    new Book("Cien años de soledad", "Tapa blanda", "Gabriel García Márquez", 12.99, "url3",3),
-    new Book("Moby Dick", "Tapa blanda", "Herman Melville", 11.99, "4",4),
-    new Book("Orgullo y prejuicio", "Tapa blanda", "Jane Austen", 9.99, "5",5)
-];
+    new Book("El Señor de los Anillos", "blanda", "J.R.R. Tolkien", 45.99, "https://th.bing.com/th/id/OIP.09ewS42LCUHAmk8zt-ETUQHaK5?w=193&h=284&c=7&r=0&o=5&pid=1.7"),
+    new Book("Dune", "blanda", "Frank Herbert", 29.99, "https://th.bing.com/th/id/OIP.cvoSdGRO8TtT-zw5N0qAAQHaLL?w=195&h=295&c=7&r=0&o=5&pid=1.7"),
+    new Book("En las Montañas de la Locura", "dura", "H.P. Lovecraft", 17.99, "https://th.bing.com/th/id/OIP._pQnuIhVJPq4C-GN7eqghAHaLL?w=195&h=295&c=7&r=0&o=5&pid=1.7"),
+  ];
+
 
 function getStart(request, response) {
     let respuesta = { error: true, codigo: 200, mensaje: 'Punto de inicio' };

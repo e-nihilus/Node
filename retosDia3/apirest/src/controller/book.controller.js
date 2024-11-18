@@ -39,11 +39,11 @@ function putBook(request, response) {
     let respuesta;
 
     if (book != null) {
-        if (title !== undefined) book.title = title;
-        if (type !== undefined) book.type = type;
-        if (author !== undefined) book.author = author;
-        if (price !== undefined) book.price = price;
-        if (photo !== undefined) book.photo = photo;
+        if (title) book.title = title;
+        if (type) book.type = type;
+        if (author) book.author = author;
+        if (price) book.price = price;
+        if (photo) book.photo = photo;
 
         respuesta = { error: false, codigo: 200, mensaje: "Libro actualizado", data: book };
     } else {
