@@ -1,0 +1,69 @@
+body {
+    margin: 0;
+    padding: 2%;
+    background: linear-gradient(45deg, #ffffff, #ff0000, #ffffff);
+    height: 100vh;
+}
+
+.busc {
+    max-width: 600px;
+    margin: auto;
+    background: #ffffffb4;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 8px;
+    border: 1px solid white;
+    font-size: large;
+}
+
+button {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid red;
+    color: red;
+    background-color: white;
+    font-size: large;
+}
+
+button:hover{
+    background-color: red;
+    color: white
+}
+
+#pokeinfo {
+    margin-top: 20px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table, th, td {
+    border: 1px solid #1f1e1e;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+
